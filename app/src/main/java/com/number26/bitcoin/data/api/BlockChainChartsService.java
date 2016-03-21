@@ -11,5 +11,5 @@ import retrofit.http.GET;
 public interface BlockChainChartsService {
 
     @GET("/charts/market-price?format=json")
-    void getBitcoinMarketPriceChart(Callback<List<GraphChartValue>> graphChartValues);
+    void getBitCoinMarketPriceChart(Callback<List<GraphChartValue>> graphChartValues);
 }
