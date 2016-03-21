@@ -1,9 +1,11 @@
-package com.number26.bitcoin;
+package com.number26.bitcoin.ui.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.number26.bitcoin.R;
+
+public class BitCoinMarketPriceChartActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
