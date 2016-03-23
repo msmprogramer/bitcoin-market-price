@@ -67,7 +67,7 @@ public class LineChartView extends View {
 
             // turn on anti alias again for the text
             paint.setAntiAlias(true);
-            canvas.drawText(String.valueOf(y), getPaddingLeft(), yPos - 2, paint);
+            canvas.drawText(String.valueOf(y), 0, yPos - 2, paint);
         }
     }
 
