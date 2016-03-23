@@ -45,7 +45,6 @@ public class LineChartView extends View {
             return;
         }
 
-        getDifferentBetweenDatesInDays();
         float maxValue = getMax(datapoints);
         drawBackground(canvas, maxValue);
         drawLineChart(canvas, maxValue);
