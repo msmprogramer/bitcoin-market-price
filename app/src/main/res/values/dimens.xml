@@ -1,5 +1,6 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fragment_bit_coin_market_price_margin">16dp</dimen>
+    <dimen name="line_chart_padding">16dp</dimen>
+
 </resources>

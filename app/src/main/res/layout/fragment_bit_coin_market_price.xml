@@ -7,7 +7,7 @@
         android:id="@+id/lineChart_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding ="16dp"/>
+        android:padding ="@dimen/line_chart_padding"/>
 
     <ProgressBar android:id="@+id/loading_progressBar"
         android:layout_gravity="center"
