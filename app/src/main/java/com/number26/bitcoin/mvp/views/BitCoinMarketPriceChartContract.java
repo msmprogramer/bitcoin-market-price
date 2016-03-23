@@ -22,5 +22,7 @@ public interface BitCoinMarketPriceChartContract {
     interface UserActionsListener {
 
         void loadBitCoinMarketPriceValues();
+
+        void stopPresenter();
     }
 }

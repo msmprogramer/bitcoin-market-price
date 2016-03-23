@@ -8,17 +8,17 @@ public class GraphChartValue {
 
     @SerializedName("x")
     @Expose
-    private Integer x;
+    private long x;
     @SerializedName("y")
     @Expose
-    private Double y;
+    private float y;
 
     /**
      *
      * @return
      * The x
      */
-    public Integer getX() {
+    public long getX() {
         return x;
     }
 
@@ -27,7 +27,7 @@ public class GraphChartValue {
      * @param x
      * The x
      */
-    public void setX(Integer x) {
+    public void setX(long x) {
         this.x = x;
     }
 
@@ -36,7 +36,7 @@ public class GraphChartValue {
      * @return
      * The y
      */
-    public Double getY() {
+    public float getY() {
         return y;
     }
 
@@ -45,7 +45,7 @@ public class GraphChartValue {
      * @param y
      * The y
      */
-    public void setY(Double y) {
+    public void setY(float y) {
         this.y = y;
     }
 

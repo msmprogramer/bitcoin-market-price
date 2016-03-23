@@ -36,15 +36,30 @@ public class BitCoinMarketPriceChartPresenter implements BitCoinMarketPriceChart
         bitCoinChartsInteractor.getBitCoinMarketPriceChart(new OnFinishedListener<List<GraphChartValue>>() {
             @Override
             public void onSuccess(@Nullable List<GraphChartValue> data) {
+
+                if (bitCoinMarketPriceChartView == null) {
+                    return;
+                }
+
                 bitCoinMarketPriceChartView.hideProgress();
                 bitCoinMarketPriceChartView.showBitCoinMarketPriceChart(data);
             }
 
             @Override
             public void onFailure() {
+
+                if (bitCoinMarketPriceChartView == null) {
+                    return;
+                }
+
                 bitCoinMarketPriceChartView.hideProgress();
                 bitCoinMarketPriceChartView.showFailureMessage();
             }
         });
+    }
+
+    @Override
+    public void stopPresenter() {
+        this.bitCoinMarketPriceChartView = null;
     }
 }
