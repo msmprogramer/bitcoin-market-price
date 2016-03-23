@@ -107,44 +107,7 @@ public class LineChartView extends View {
         paint.setShadowLayer(0, 0, 0, 0);
     }
 
-    private int getDifferentBetweenDatesInDays() {
-        Date startDate = new Date(getMinDate(datapoints));
-
-        Date endDate =  new Date(getMaxDate(datapoints));
-
-        long diff = endDate.getTime() - startDate.getTime() ;
-
-        int days = (int) (diff / (24 * 60 * 60 * 1000));
-
-        return days;
-    }
-
-
-    private long getMinDate(List<GraphPoint> datapoints) {
-        Collections.sort(datapoints, new Comparator<GraphPoint>() {
-            @Override
-            public int compare(GraphPoint lhs, GraphPoint rhs) {
-                return new Date(lhs.getX()).compareTo(new Date(rhs.getX()));
-            }
-        });
-
-        return datapoints.get(0).getX()  * 1000l;
-    }
-
-    private long getMaxDate(List<GraphPoint> datapoints) {
-        Collections.sort(datapoints, new Comparator<GraphPoint>() {
-            @Override
-            public int compare(GraphPoint lhs, GraphPoint rhs) {
-                return new Date(lhs.getX()).compareTo(new Date(rhs.getX()));
-            }
-        });
-
-        Log.d(TAG, "getMaxDate: " + datapoints.get(datapoints.size() - 1).getX());
-
-        return datapoints.get(datapoints.size() - 1).getX() * 1000l;
-    }
-
-
+    
     private float getMax(List<GraphPoint> datapoints) {
         Ordering<GraphPoint> o = new Ordering<GraphPoint>() {
             @Override
