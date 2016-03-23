@@ -2,6 +2,7 @@ package com.number26.bitcoin.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.number26.bitcoin.R;
-import com.number26.bitcoin.data.model.GraphChartValue;
+import com.number26.bitcoin.data.model.GraphPoint;
 import com.number26.bitcoin.mvp.interactors.BitCoinChartsInteractorImpl;
 import com.number26.bitcoin.mvp.presenters.BitCoinMarketPriceChartPresenter;
 import com.number26.bitcoin.mvp.views.BitCoinMarketPriceChartContract;
@@ -75,19 +76,15 @@ public class BitCoinMarketPriceChartFragment extends Fragment implements BitCoin
     }
 
     @Override
-    public void showBitCoinMarketPriceChart(List<GraphChartValue> graphChartValues) {
-        Log.d(TAG, graphChartValues.size() + "");
-
-        lineChartView.setChartData(graphChartValues);
+    public void showBitCoinMarketPriceChart(List<GraphPoint> graphPoints) {
+        lineChartView.setChartData(graphPoints);
     }
-
-//    private float[] getRandomData() {
-//        return new float[] { 220,260.5f, 266.07f, 247.83f, 245.68f, 251.98f, 248.63f,
-//                251.52f, 244.05f, 245.18f, 242.92f, 242.7f, 252.44f};
-//    }
 
     @Override
     public void showFailureMessage() {
-        //lineChartView.setChartData(getRandomData());
-        Log.d(TAG, "showFailureMessage: ");    }
+        Snackbar.make(getView(),
+                getString(R.string.error_failed_load_bit_coin_market_price),
+                Snackbar.LENGTH_SHORT).
+                show();
+    }
 }

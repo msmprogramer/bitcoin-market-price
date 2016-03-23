@@ -3,7 +3,7 @@ package com.number26.bitcoin.mvp.presenters;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.number26.bitcoin.data.model.GraphChartValue;
+import com.number26.bitcoin.data.model.GraphPoint;
 import com.number26.bitcoin.mvp.interactors.BitCoinChartsInteractor;
 import com.number26.bitcoin.mvp.interactors.OnFinishedListener;
 import com.number26.bitcoin.mvp.views.BitCoinMarketPriceChartContract;
@@ -33,9 +33,9 @@ public class BitCoinMarketPriceChartPresenter implements BitCoinMarketPriceChart
     public void loadBitCoinMarketPriceValues() {
         bitCoinMarketPriceChartView.showProgress();
 
-        bitCoinChartsInteractor.getBitCoinMarketPriceChart(new OnFinishedListener<List<GraphChartValue>>() {
+        bitCoinChartsInteractor.getBitCoinMarketPriceChart(new OnFinishedListener<List<GraphPoint>>() {
             @Override
-            public void onSuccess(@Nullable List<GraphChartValue> data) {
+            public void onSuccess(@Nullable List<GraphPoint> data) {
 
                 if (bitCoinMarketPriceChartView == null) {
                     return;

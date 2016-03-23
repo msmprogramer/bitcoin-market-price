@@ -2,10 +2,10 @@ package com.number26.bitcoin.mvp.interactors;
 
 import android.support.annotation.NonNull;
 
-import com.number26.bitcoin.data.api.BlockChainChartsService;
+import com.number26.bitcoin.data.api.BitCoinChartsService;
 import com.number26.bitcoin.data.model.BitCoinMarketPriceResponse;
-import com.number26.bitcoin.data.model.GraphChartValue;
-import com.number26.bitcoin.data.rest.BlockChainRestClient;
+import com.number26.bitcoin.data.model.GraphPoint;
+import com.number26.bitcoin.data.rest.BitCoinChartsRestClient;
 
 import java.util.List;
 
@@ -15,15 +15,15 @@ import retrofit.client.Response;
 
 public class BitCoinChartsInteractorImpl implements BitCoinChartsInteractor{
 
-    private BlockChainChartsService blockChainChartsService;
+    private BitCoinChartsService bitCoinChartsService;
 
     public BitCoinChartsInteractorImpl() {
-        blockChainChartsService = new BlockChainRestClient().getService();
+        bitCoinChartsService = new BitCoinChartsRestClient().getService();
     }
 
     @Override
-    public void getBitCoinMarketPriceChart(@NonNull final OnFinishedListener<List<GraphChartValue>> listener) {
-        blockChainChartsService.getBitCoinMarketPriceChart(new Callback<BitCoinMarketPriceResponse>() {
+    public void getBitCoinMarketPriceChart(@NonNull final OnFinishedListener<List<GraphPoint>> listener) {
+        bitCoinChartsService.getBitCoinMarketPriceChart(new Callback<BitCoinMarketPriceResponse>() {
             @Override
             public void success(BitCoinMarketPriceResponse bitCoinMarketPriceResponse, Response response) {
                 listener.onSuccess(bitCoinMarketPriceResponse.getValues());

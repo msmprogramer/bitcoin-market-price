@@ -11,14 +11,14 @@ public class BitCoinMarketPriceResponse {
 
     @SerializedName("values")
     @Expose
-    private List<GraphChartValue> values = new ArrayList<GraphChartValue>();
+    private List<GraphPoint> values = new ArrayList<GraphPoint>();
 
     /**
      *
      * @return
      * The values
      */
-    public List<GraphChartValue> getValues() {
+    public List<GraphPoint> getValues() {
         return values;
     }
 
@@ -27,7 +27,7 @@ public class BitCoinMarketPriceResponse {
      * @param values
      * The values
      */
-    public void setValues(List<GraphChartValue> values) {
+    public void setValues(List<GraphPoint> values) {
         this.values = values;
     }
 

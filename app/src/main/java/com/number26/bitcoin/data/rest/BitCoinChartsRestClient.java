@@ -2,15 +2,15 @@ package com.number26.bitcoin.data.rest;
 
 import android.support.annotation.Nullable;
 
-import com.number26.bitcoin.data.api.BlockChainChartsService;
+import com.number26.bitcoin.data.api.BitCoinChartsService;
 import com.number26.bitcoin.utils.Constants;
 
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 
-public class BlockChainRestClient {
+public class BitCoinChartsRestClient {
 
-    private BlockChainChartsService blockChainChartsService;
+    private BitCoinChartsService bitCoinChartsService;
 
 
     RequestInterceptor requestInterceptor = new RequestInterceptor() {
@@ -20,18 +20,18 @@ public class BlockChainRestClient {
         }
     };
 
-    public BlockChainRestClient() {
+    public BitCoinChartsRestClient() {
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(Constants.BACKEND_API_URL)
                 .setRequestInterceptor(requestInterceptor)
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .build();
 
-        blockChainChartsService = restAdapter.create(BlockChainChartsService.class);
+        bitCoinChartsService = restAdapter.create(BitCoinChartsService.class);
     }
 
     @Nullable
-    public BlockChainChartsService getService() {
-        return blockChainChartsService;
+    public BitCoinChartsService getService() {
+        return bitCoinChartsService;
     }
 }

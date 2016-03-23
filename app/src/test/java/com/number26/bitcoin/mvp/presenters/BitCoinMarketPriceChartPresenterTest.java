@@ -1,11 +1,9 @@
 package com.number26.bitcoin.mvp.presenters;
 
-import com.number26.bitcoin.data.model.GraphChartValue;
+import com.number26.bitcoin.data.model.GraphPoint;
 import com.number26.bitcoin.mvp.interactors.BitCoinChartsInteractor;
 import com.number26.bitcoin.mvp.interactors.OnFinishedListener;
 import com.number26.bitcoin.mvp.views.BitCoinMarketPriceChartContract;
-
-import junit.framework.TestCase;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +11,6 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.ArrayList;
@@ -24,7 +21,7 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class BitCoinMarketPriceChartPresenterTest {
 
-    private final static List<GraphChartValue> graphChartValues = new ArrayList<>();
+    private final static List<GraphPoint> GRAPH_POINTs = new ArrayList<>();
 
     @Mock
     private BitCoinMarketPriceChartContract.View bitCoinMarketPriceView;
@@ -34,7 +31,7 @@ public class BitCoinMarketPriceChartPresenterTest {
     private BitCoinMarketPriceChartPresenter bitCoinMarketPriceChartPresenter;
 
     @Captor
-    private ArgumentCaptor<OnFinishedListener<List<GraphChartValue>>> callBack;
+    private ArgumentCaptor<OnFinishedListener<List<GraphPoint>>> callBack;
 
     @Before
     public void setUp() throws Exception {
@@ -49,10 +46,10 @@ public class BitCoinMarketPriceChartPresenterTest {
         verify(bitCoinMarketPriceView).showProgress();
 
         verify(bitCoinChartsInteractor).getBitCoinMarketPriceChart(callBack.capture());
-        callBack.getValue().onSuccess(graphChartValues);
+        callBack.getValue().onSuccess(GRAPH_POINTs);
 
         verify(bitCoinMarketPriceView).hideProgress();
-        verify(bitCoinMarketPriceView).showBitCoinMarketPriceChart(graphChartValues);
+        verify(bitCoinMarketPriceView).showBitCoinMarketPriceChart(GRAPH_POINTs);
     }
 
     @Test

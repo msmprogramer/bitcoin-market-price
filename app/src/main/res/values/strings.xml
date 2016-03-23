@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BitcoinMarketPrice</string>
+    <string name="error_failed_load_bit_coin_market_price">Failed to load bitcoin market price</string>
 </resources>
